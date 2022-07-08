@@ -55,5 +55,13 @@ AuthorSchema.virtual("deathdate_formatted").get(function () {
     : "";
 });
 
+AuthorSchema.virtual("dob_yearfirst").get(function () {
+  return DateTime.fromJSDate(this.date_of_birth).toISODate(); //format 'YYYY-MM-DD'
+});
+
+AuthorSchema.virtual("dod_yearfirst").get(function () {
+  return DateTime.fromJSDate(this.date_of_death).toISODate(); // format 'YYYY-MM-DD'
+});
+
 //Export model
 module.exports = mongoose.model("Author", AuthorSchema);

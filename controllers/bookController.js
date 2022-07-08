@@ -211,7 +211,6 @@ exports.book_delete_get = function (req, res) {
     },
     function (err, results) {
       if (err) return next(err);
-      console.log(results);
       res.render("book_delete", {
         title: "Delete Book",
         book: results.book,

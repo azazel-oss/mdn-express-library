@@ -24,5 +24,10 @@ BookInstanceSchema.virtual("due_back_formatted").get(function () {
   return DateTime.fromJSDate(this.due_back).toLocaleString(DateTime.DATE_MED);
 });
 
+// Due back date in yyyy-mm-dd format
+BookInstanceSchema.virtual("dodb_yearfirst").get(function () {
+  return DateTime.fromJSDate(this.due_back).toISODate();
+});
+
 //Export model
 module.exports = mongoose.model("BookInstance", BookInstanceSchema);
